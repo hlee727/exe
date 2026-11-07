@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>날씨</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <form id="search-form" class="search" autocomplete="off">
+        <input id="search-input" type="search" placeholder="도시 검색 (예: 서울, 부산, Tokyo)" aria-label="도시 검색" />
+        <ul id="suggestions" class="suggestions" hidden></ul>
+      </form>
+      <button id="locate-btn" class="icon-btn" title="현재 위치" aria-label="현재 위치">📍</button>
+      <button id="unit-btn" class="icon-btn" title="단위 전환" aria-label="단위 전환">°C</button>
+    </header>
+
+    <p id="status" class="status">불러오는 중…</p>
+
+    <section id="current" class="current" hidden>
+      <h1 id="place" class="place"></h1>
+      <p id="updated" class="updated"></p>
+      <div class="now">
+        <span id="now-icon" class="now-icon"></span>
+        <span id="now-temp" class="now-temp"></span>
+      </div>
+      <p id="now-compare" class="now-compare" hidden></p>
+      <p id="now-desc" class="now-desc"></p>
+      <p id="now-range" class="now-range"></p>
+      <p id="now-compare-sub" class="now-compare-sub" hidden></p>
+      <div class="details">
+        <div><span>체감</span><strong id="d-feels"></strong></div>
+        <div><span>습도</span><strong id="d-humidity"></strong></div>
+        <div><span>바람</span><strong id="d-wind"></strong></div>
+        <div><span>강수확률</span><strong id="d-pop"></strong></div>
+        <div><span>일출</span><strong id="d-sunrise"></strong></div>
+        <div><span>일몰</span><strong id="d-sunset"></strong></div>
+      </div>
+    </section>
+
+    <section id="hourly-card" class="card" hidden>
+      <h2>시간별 예보</h2>
+      <div id="hourly" class="hourly"></div>
+    </section>
+
+    <section id="daily-card" class="card" hidden>
+      <h2>7일 예보</h2>
+      <ul id="daily" class="daily"></ul>
+    </section>
+
+    <footer class="credit">데이터: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
